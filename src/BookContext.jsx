@@ -1,23 +1,24 @@
 import { createContext } from 'react'
-import { useState, useEffect } from 'react'
-import { useFetch } from './useFetch'
 import { useLocalStorage } from './useLocalStorage'
 
 
 const BookContext = createContext()
 export default BookContext
 
+const initialBooks = [
+  {id: 1, title: "Sapiens", author: "Yuval Noah Harari", status: false},
+  {id: 2, title: "Fight Club", author: "Chuck Palahniuk", status: false},
+  {id: 3, title: "Atomic Habits", author: "James Clear", status: false},
+  {id: 4, title: "Children of Blood and Bone", author: "Tomi Adeyemi", status: false},
+  {id: 5, title: "Crushing It!", author: "Gary Vaynerchuk", status: false},
+  {id: 6, title: "The Metamorphosis", author: "Franz Kafka", status: false},
+]
 
 export const BookProvider = ({children}) => {
-  const { data, loading, error } = useFetch('https://backend-ra-books.vercel.app/books')
 
-  // const [books, setBooks] = useLocalStorage('books', [])
+  const [books, setBooks] = useLocalStorage('books', initialBooks)
   
-  const [books, setBooks] = useState([])
-
-  useEffect(() => {
-    if (data) setBooks(data)
-  }, [data])
+  // const [books, setBooks] = useState([])
 
   const removeBook = (bookId) => {
     const updatedBooks = books.filter((book) => book._id !== bookId);
@@ -32,11 +33,8 @@ export const BookProvider = ({children}) => {
     setBooks(updatedBooks);
   };
 
-  loading && (<div>Loading...</div>)
-  error && (<div>Error occured while loading books.</div>)
-
   return (
-      <BookContext.Provider value={{books, setBooks, removeBook, handleToggle, loading, error}}>
+      <BookContext.Provider value={{books, setBooks, removeBook, handleToggle}}>
         {children}
       </BookContext.Provider>
   )
