@@ -16,8 +16,10 @@ export const BookProvider = ({children}) => {
   // const [books, setBooks] = useState([])
 
   useEffect(() => {
-    if (data && books.length === 0) setBooks(data)
-  }, [data])
+  if (data && books.length === 0) {
+    setBooks(data) //  set if only no local storage data exists
+  }
+}, [data])
 
   const removeBook = (bookId) => {
     const updatedBooks = books.filter((book) => book._id !== bookId);
