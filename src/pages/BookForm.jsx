@@ -41,7 +41,7 @@ export const AddBookForm = () => {
         console.error("Error:", error)
         console.log("Failed to make a POST call.")
     }
-    setFormData('')
+    window.location.reload()
   }
 
   return (
