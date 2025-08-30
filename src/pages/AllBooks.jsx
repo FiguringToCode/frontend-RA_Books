@@ -17,7 +17,7 @@ export const AllBooks = () => {
             <h1>Book List</h1>
             <div>
               <select className="border rounder-2 px-3 py-1" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
-                <option value="All">Select Status</option>
+                <option value="All">All Books</option>
                 <option value="true">Read</option>
                 <option value="false">Unread</option>
               </select>
