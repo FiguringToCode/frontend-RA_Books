@@ -36,6 +36,7 @@ export const AddBookForm = () => {
 
         const data = await response.json()
         console.log("Added Book: ", data)
+        {window.location.reload()}
 
     } catch (error) {
         console.error("Error:", error)

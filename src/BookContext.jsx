@@ -36,7 +36,7 @@ export const BookProvider = ({children}) => {
   error && (<div>Error occured while loading books.</div>)
 
   return (
-      <BookContext.Provider value={{books, setBooks, removeBook, handleToggle}}>
+      <BookContext.Provider value={{books, setBooks, removeBook, handleToggle, loading, error}}>
         {children}
       </BookContext.Provider>
   )
