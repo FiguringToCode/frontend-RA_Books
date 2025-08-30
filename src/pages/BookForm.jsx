@@ -37,11 +37,16 @@ export const AddBookForm = () => {
         const data = await response.json()
         console.log("Added Book: ", data)
 
+      setFormData({
+        title: "",
+        author: "",
+        status: false
+      });
+
     } catch (error) {
         console.error("Error:", error)
         console.log("Failed to make a POST call.")
     }
-    window.location.reload()
   }
 
   return (
