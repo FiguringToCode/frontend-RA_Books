@@ -16,7 +16,7 @@ export const BookProvider = ({children}) => {
   // const [books, setBooks] = useState([])
 
   useEffect(() => {
-    if (data) setBooks(data)
+    if (data && books.length === 0) setBooks(data)
   }, [data])
 
   const removeBook = (bookId) => {
