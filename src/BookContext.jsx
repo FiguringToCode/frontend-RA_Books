@@ -11,9 +11,9 @@ export default BookContext
 export const BookProvider = ({children}) => {
   const { data, loading, error } = useFetch('https://backend-ra-books.vercel.app/books')
 
-  // const [books, setBooks] = useLocalStorage('books', [])
+  const [books, setBooks] = useLocalStorage('books', [])
   
-  const [books, setBooks] = useState([])
+  // const [books, setBooks] = useState([])
 
   useEffect(() => {
     if (data) setBooks(data)
