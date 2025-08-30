@@ -27,6 +27,7 @@ export const AllBooks = () => {
         <div>
           {error && <p>No Books Found</p>}
           {loading && <p>Loading....</p>}
+          {books.length === 0 && <p>No Books Found.</p>}
           <ul className="list-group w-lg-50">
             {filteredStatus.map((book) => (
               <li key={book._id} className="list-group-item d-flex justify-content-between">
