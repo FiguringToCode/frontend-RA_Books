@@ -17,7 +17,7 @@ export const AllBooks = () => {
             <h1>Book List</h1>
             <div>
               <select className="border rounder-2 px-3 py-1" value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
-                <option value="All">Select Status</option>
+                <option value="All">All Books</option>
                 <option value="true">Read</option>
                 <option value="false">Unread</option>
               </select>
@@ -25,6 +25,12 @@ export const AllBooks = () => {
             <div>Read {booksRead.length} | Unread {booksUnread.length} | Total Books {books.length}</div>
         </span>
         <div>
+<<<<<<< HEAD
+=======
+          {error && <p>No Books Found</p>}
+          {loading && <p>Loading....</p>}
+          {books.length === 0 && <p>No Books Found.</p>}
+>>>>>>> b9a8c42399d2a3a81dc0915fcf2260ee57a53bcb
           <ul className="list-group w-lg-50">
             {filteredStatus.map((book) => (
               <li key={book._id} className="list-group-item d-flex justify-content-between">

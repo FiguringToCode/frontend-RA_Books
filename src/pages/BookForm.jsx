@@ -23,11 +23,27 @@ export const AddBookForm = () => {
 
     console.log("Form data saved in localStorage:", formData);
 
+<<<<<<< HEAD
     setFormData({
       title: "",
       author: "",
       status: false
     })
+=======
+        const data = await response.json()
+        console.log("Added Book: ", data)
+
+      setFormData({
+        title: "",
+        author: "",
+        status: false
+      });
+
+    } catch (error) {
+        console.error("Error:", error)
+        console.log("Failed to make a POST call.")
+    }
+>>>>>>> b9a8c42399d2a3a81dc0915fcf2260ee57a53bcb
   }
 
   return (
