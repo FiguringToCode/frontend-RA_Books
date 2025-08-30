@@ -25,21 +25,15 @@ export const AllBooks = () => {
             <div>Read {booksRead.length} | Unread {booksUnread.length} | Total Books {books.length}</div>
         </span>
         <div>
-<<<<<<< HEAD
-=======
-          {error && <p>No Books Found</p>}
-          {loading && <p>Loading....</p>}
-          {books.length === 0 && <p>No Books Found.</p>}
->>>>>>> b9a8c42399d2a3a81dc0915fcf2260ee57a53bcb
           <ul className="list-group w-lg-50">
             {filteredStatus.map((book) => (
-              <li key={book._id} className="list-group-item d-flex justify-content-between">
+              <li key={book.id} className="list-group-item d-flex justify-content-between">
                 <span>
                   <h3>{book.title}</h3>By  {book.author}
                 </span>
                 <span>
-                  <button style={{backgroundColor: book.status ? "lightgreen" : 'tomato', color: "white"}} className="btn border border-2 mx-2" onClick={() => handleToggle(book._id)}>{book.status ? 'Read' : 'Unread'}</button>
-                  <button style={{backgroundColor: "tomato", color: "white"}} className="btn border border-2 mx-2" onClick={() => removeBook(book._id)}>Delete</button>
+                  <button style={{backgroundColor: book.status ? "lightgreen" : 'tomato', color: "white"}} className="btn border border-2 mx-2" onClick={() => handleToggle(book.id)}>{book.status ? 'Read' : 'Unread'}</button>
+                  <button style={{backgroundColor: "tomato", color: "white"}} className="btn border border-2 mx-2" onClick={() => removeBook(book.id)}>Delete</button>
                 </span>
               </li>
             ))}
